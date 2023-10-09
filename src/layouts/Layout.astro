@@ -1,0 +1,166 @@
+---
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Izzystem</title>
+	</head>
+	<body>
+		<Nav/>
+		<slot />
+    <Footer />
+	</body>
+</html>
+<style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+    --bg-color-body: #fafafa;
+
+    --text-color: #000;
+    --text-color-secondary: #676c6f;
+
+    --color-secondary: #333;
+    --color-secondary-hover: #43494d;
+
+    --bg-color-primary: #f2f2f2;
+    --bg-color-secondary: #e9e9ed;
+    --bg-color-third: #dedee2;
+
+    --color-primary: #9259ff;
+  --color-primary-hover: #7c41ed;
+
+  --font-size-md: 15px;
+  --box-shadow-xs: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --box-shadow-sm: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --box-shadow-md: 0 7px 14px 0 rgba(65, 69, 88, 0.1),
+    0 3px 6px 0 rgba(0, 0, 0, 0.07);
+  --box-shadow-lg: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+
+
+/*
+puede ser el color primary 925EFF
+*/
+html {
+
+  font-family: 'Poppins', Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color-body);
+  color: var(--text-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  list-style: none;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+span,
+a {
+  display: block;
+}
+
+/* END RESET STYLES*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-weight: 500;
+}
+
+
+
+.icon-xs {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-sm {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-md {
+  width: 22px;
+  height: 22px;
+}
+
+.icon-lg {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-xl {
+  width: 26px;
+  height: 26px;
+}
+
+.icon-2xl {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-3xl {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-4xl {
+  width: 32px;
+  height: 32px;
+}
+
+.icon-5xl {
+  width: 34px;
+  height: 34px;
+}
+
+.icon-6xl {
+  width: 36px;
+  height: 36px;
+}
+
+
+
+</style>

@@ -1,0 +1,70 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const path = pathname.slice(1);
+
+---
+
+<header class="header">
+    <h1 class="logo">Izzystem</h1>
+    <nav class="nav">
+        <a class={path === "" ? "active" : ""} href="/">Inicio</a>
+        <a class={path === "about" ? "active" : ""} href="/posts">Acerca de</a>
+        <a class={path === "services" ? "active" : ""} href="/portfolio">Servicios</a>
+        <a class={path === "technologies" ? "active" : ""} href="/about">Tecnologias</a>
+        <a class={path === "contact" ? "active" : ""} href="/contact">Contactanos</a>
+      </nav>
+      
+    <div class="wrapButton">
+        <button class="button" >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-xl">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+    </div>
+</header>
+
+<style>
+    .header{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+        align-items: center;
+        height: 10vh;
+    }
+    .logo{
+        font-size: xx-large;
+        font-weight: 600;
+    }
+ 
+    .nav{
+        display: none;
+      
+    }
+
+    .button{
+        display: flex;
+        background-color: transparent;   
+
+    }
+
+    .active{
+        border-bottom: 3px solid #000;
+        font-weight: 600;
+    }
+
+    @media (min-width:1280px) {
+        .header{
+            padding: 0 15%;
+        }
+
+        .nav{
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .wrapButton{
+            display:none;
+        }
+       
+    }
+</style>

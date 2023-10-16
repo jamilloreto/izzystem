@@ -19,17 +19,15 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title} | Izzystem</title>
+		<title>{title ? `${title} | Izzisistem` : "Izzisistem"}</title>
     <ViewTransitions/>
 	</head>
 	<body>
 		<Nav/>
 		<main class="container">
-
       <slot name="image" />
       <slot />
       <slot name="text" />
-     
     </main>
     <Footer />
     <Notify  client:idle />
@@ -66,9 +64,6 @@ const { title } = Astro.props;
 
 
 
-/*
-puede ser el color primary 925EFF
-*/
 html {
 
   font-family: 'Poppins', Helvetica, Arial, sans-serif;
@@ -205,6 +200,7 @@ button {
   justify-content: space-between;
   padding: 0 15%;
   height: 80vh;
+  gap: 2rem;
 }
 
 .primary{

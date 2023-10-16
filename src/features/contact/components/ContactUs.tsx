@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Form, Input, TextArea } from "../../../components/react";
 import { useForm } from "../../../hooks";
 import toast from "react-hot-toast";
-import { validation } from "../../../utils";
+import { services, validation } from "../../../utils";
 import { contactSchema } from "../schemas";
 
 interface Contact {
@@ -94,8 +94,11 @@ export function ContactUs() {
       />
       <select name="service" onChange={onChange}>
         <option value="">Seleccionar servicio</option>
-        <option value="Desarrollo de una web">Desarrollo de una web</option>
-        <option value="Cableado estructurado">Cableado estructurado</option>
+        {services.map((service, key) => (
+          <option key={key} value={service}>
+            {service}
+          </option>
+        ))}
       </select>
       <TextArea
         name="description"

@@ -20,7 +20,7 @@ export const Form = ({
     <form id={id} className={s.form} onSubmit={onSubmit}>
       {children}
       <button disabled={disable} type="submit" className={s.submitBtn}>
-        {sending ? <p>Loading...</p> : <span>{btnName || "Guardar"}</span>}
+        {sending ? <span>Enviando...</span> : <span>{btnName}</span>}
       </button>
     </form>
   );

@@ -1,0 +1,30 @@
+---
+
+import Li from '../components/Li.astro';
+import Layout from '../layouts/Layout.astro';
+import { services } from "../utils";
+---
+
+<Layout title="Nuestro servicios">
+    <section slot="image" class="secondary">
+        <img class="img" src="/illustrations/services.svg" alt="">
+        </section>
+    <section slot="text" class="primary">
+        <h2 class="title">Nuestros servicios</h2>
+        <ul class="ul">
+            { 
+                services.map((s)=>(
+                    <Li title={s} />
+                ))
+            }
+
+        </ul>
+    </section>
+</Layout>
+
+<style>
+    .ul{
+        display: grid;
+        gap: 0.25rem;
+    }
+</style>

@@ -1,6 +1,9 @@
 ---
+import { Notify } from '../components/react';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
+import { ViewTransitions } from "astro:transitions"
+
 interface Props {
 	title: string;
 }
@@ -17,11 +20,19 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | Izzystem</title>
+    <ViewTransitions/>
 	</head>
 	<body>
 		<Nav/>
-		<slot />
+		<main class="container">
+
+      <slot name="image" />
+      <slot />
+      <slot name="text" />
+     
+    </main>
     <Footer />
+    <Notify  client:idle />
 	</body>
 </html>
 <style is:global>
@@ -29,7 +40,8 @@ const { title } = Astro.props;
 
 
 :root {
-    --bg-color-body: #fafafa;
+  /*#fafafa*/
+    --bg-color-body: #fff;
 
     --text-color: #000;
     --text-color-secondary: #676c6f;
@@ -161,6 +173,54 @@ button {
   height: 36px;
 }
 
+.container{
+		padding: 0 1rem;
+		height: 90vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
+	.primary{
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+  .primary .title{
+		font-size: xx-large;
+		font-weight: 600;
+	}
+
+  .secondary .img {
+		width: 250px;
+		height: 250px;
+	}
+
+  @media (min-width:1280px) {
+
+.container{
+  display: grid;
+  grid-template-areas: "primary secondary";
+  justify-content: space-between;
+  padding: 0 15%;
+  height: 80vh;
+}
+
+.primary{
+  grid-area: primary;
+  gap: 2rem;
+}
+
+.secondary {
+  grid-area: secondary;
+}
+
+.secondary .img {
+  width: 500px;
+			height: 500px;
+	}
+
+}
 
 </style>

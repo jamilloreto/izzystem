@@ -1,0 +1,11 @@
+.button {
+  display: flex;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media (min-width: 1280px) {
+  .button {
+    display: none;
+  }
+}
